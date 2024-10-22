@@ -34,18 +34,18 @@ jobs:
         run: sudo snap install intellij-idea-community --channel=2023.3/stable --classic
 
       - name: IJ version
-        run: intellij-idea-ultimate --version
+        run: intellij-idea-community --version
 
       - name: IJ install Shared Indexes plugin
-        run: intellij-idea-ultimate installPlugins intellij.indexing.shared
+        run: intellij-idea-community installPlugins intellij.indexing.shared
 
       - name: IJ Help
-        run: intellij-idea-ultimate dump-shared-index --help
+        run: intellij-idea-community dump-shared-index --help
 
       - name: IJ Help
-        run: which intellij-idea-ultimate
+        run: which intellij-idea-community
 
       - name: IJ Help
-        run: intellij-idea-ultimate dump-shared-index project --project-id=multi-jar --project-dir=examples/multi-jar
+        run: intellij-idea-community dump-shared-index project --project-id=multi-jar --project-dir=examples/multi-jar
 
 
