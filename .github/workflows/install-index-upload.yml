@@ -34,4 +34,4 @@ jobs:
         run: sudo snap install intellij-idea-ultimate --channel=2023.3/stable --classic
 
       - name: IJ Help
-        run: intellij-idea-ultimate dump-shared-index --help
+        run: intellij-idea-ultimate --help
