@@ -68,12 +68,22 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload Release Asset
+      - name: Upload Release Asset1
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: indexing-results
-          asset_name: indexing-results
+          asset_path: indexing-results/index.metadata.json
+          asset_name: index.metadata.json
+          asset_content_type: application/json
+
+      - name: Upload Release Asset2
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: indexing-results/index.ijx.xz
+          asset_name: index.ijx.xz
           asset_content_type: application/zip
