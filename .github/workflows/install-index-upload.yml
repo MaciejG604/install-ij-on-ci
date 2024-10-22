@@ -36,5 +36,8 @@ jobs:
       - name: IJ version
         run: intellij-idea-ultimate --version
 
+      - name: IJ install Shared Indexes plugin
+        run: intellij-idea-ultimate installPlugins intellij.indexing.shared
+
       - name: IJ Help
         run: intellij-idea-ultimate --help
