@@ -46,9 +46,6 @@ jobs:
         run: which intellij-idea-ultimate
 
       - name: IJ Help
-        run: stat /snap/bin/intellij-idea-ultimate
-
-      - name: IJ Help
-        run: cat /snap/bin/intellij-idea-ultimate
+        run: intellij-idea-ultimate dump-shared-index project --project-id=multi-jar --project-dir=examples/multi-jar
 
 
