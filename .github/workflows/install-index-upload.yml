@@ -44,3 +44,11 @@ jobs:
 
       - name: IJ Help
         run: which intellij-idea-ultimate
+
+      - name: IJ Help
+        run: stat /snap/bin/intellij-idea-ultimate
+
+      - name: IJ Help
+        run: cat /snap/bin/intellij-idea-ultimate
+
+
