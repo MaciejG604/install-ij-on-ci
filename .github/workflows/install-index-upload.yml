@@ -26,6 +26,9 @@ jobs:
       - name: Install snapd
         run: sudo apt-get update && sudo apt-get install -y snapd
 
+      - name: Get info
+        run: snap info intellij-idea-ultimate
+
       # Runs a set of commands using the runners shell
       - name: Install IJ
         run: sudo snap install intellij-idea-ultimate --channel=2023.3.8/stable --classic
