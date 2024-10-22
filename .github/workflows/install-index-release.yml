@@ -22,10 +22,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-      - name: Install IJ
-        run: sudo snap install intellij-idea-community --channel=2023.3/stable --classic
-      - name: IJ install Shared Indexes plugin
-        run: intellij-idea-community installPlugins intellij.indexing.shared
+#      - name: Install IJ
+#        run: sudo snap install intellij-idea-community --channel=2023.3/stable --classic
+#      - name: IJ install Shared Indexes plugin
+#        run: intellij-idea-community installPlugins intellij.indexing.shared
 
       - name: IJ build shared indexes
         run: |
