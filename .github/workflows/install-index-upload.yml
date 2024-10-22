@@ -45,8 +45,11 @@ jobs:
       - name: IJ Help
         run: which intellij-idea-community
 
-      - name: IJ Help
+      - name: IJ build shared indexes
         run: mkdir results &&
           intellij-idea-community dump-shared-index project --project-id=multi-jar --project-dir=examples/multi-jar --output=results
+
+      - name: IJ check indexes
+        run: ls -lh results
 
 
