@@ -33,5 +33,8 @@ jobs:
       - name: Install IJ
         run: sudo snap install intellij-idea-ultimate --channel=2023.3/stable --classic
 
+      - name: IJ version
+        run: intellij-idea-ultimate --version
+
       - name: IJ Help
         run: intellij-idea-ultimate --help
