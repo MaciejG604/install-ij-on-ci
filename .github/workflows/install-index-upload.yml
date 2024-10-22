@@ -31,7 +31,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Install IJ
-        run: sudo snap install intellij-idea-ultimate --channel=2023.3/stable --classic
+        run: sudo snap install intellij-idea-community --channel=2023.3/stable --classic
 
       - name: IJ version
         run: intellij-idea-ultimate --version
