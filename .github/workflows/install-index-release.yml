@@ -53,6 +53,9 @@ jobs:
         with:
           name: index-assets
 
+      - name:
+        run: ls -lr /home/runner/work/install-ij-on-ci/install-ij-on-ci
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
