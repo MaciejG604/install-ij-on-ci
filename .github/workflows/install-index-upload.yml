@@ -41,3 +41,6 @@ jobs:
 
       - name: IJ Help
         run: intellij-idea-ultimate dump-shared-index --help
+
+      - name: IJ Help
+        run: which intellij-idea-ultimate
