@@ -40,4 +40,4 @@ jobs:
         run: intellij-idea-ultimate installPlugins intellij.indexing.shared
 
       - name: IJ Help
-        run: intellij-idea-ultimate --help
+        run: intellij-idea-ultimate dump-shared-index --help
