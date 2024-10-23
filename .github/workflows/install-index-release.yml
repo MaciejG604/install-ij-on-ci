@@ -22,17 +22,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-#      - name: Install IJ
-#        run: sudo snap install intellij-idea-community --channel=2023.3/stable --classic
-#      - name: IJ install Shared Indexes plugin
-#        run: intellij-idea-community installPlugins intellij.indexing.shared
+      - name: Install IJ
+        run: sudo snap install intellij-idea-community --channel=2023.3/stable --classic
+      - name: IJ install Shared Indexes plugin
+        run: intellij-idea-community installPlugins intellij.indexing.shared
 
       - name: IJ build shared indexes
         run: |
           mkdir results
-          echo "1234567" > results/index.ijx.xz
-          echo "metadata: true" > results/index.metadata.json
-#          intellij-idea-community dump-shared-index project --project-id=multi-jar --project-dir=examples/multi-jar --output=results
+          intellij-idea-community dump-shared-index project --project-id=multi-jar --project-dir=examples/multi-jar --output=results
 
       - name: IJ check indexes
         run: ls -lh results
@@ -68,22 +66,32 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload Release Asset1
+      - name: Upload Release Asset - metadata.json
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: indexing-results/index.metadata.json
+          asset_path: indexing-results/*.metadata.json
           asset_name: index.metadata.json
           asset_content_type: application/json
 
-      - name: Upload Release Asset2
+      - name: Upload Release Asset - index archive
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: indexing-results/index.ijx.xz
+          asset_path: indexing-results/*.ijx.xz
           asset_name: index.ijx.xz
           asset_content_type: application/zip
+
+      - name: Upload Release Asset - sha256
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: indexing-results/*.sha256
+          asset_name: index.ijx.xz
+          asset_content_type: text/plain
